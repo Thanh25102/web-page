@@ -3,7 +3,6 @@ import {Box, Button, Card, CardContent, InputAdornment, SvgIcon, TextField, Typo
 import SearchIcon from '@mui/icons-material/Search';
 
 export const UserNavigationBar = () => {
-    const {setUserSelected} = useUserContext();
     return (
         <Box>
             <Box

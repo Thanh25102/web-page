@@ -2,11 +2,11 @@ import httpRequest from '@/utils/http-request'
 import {CreateUser, UpdateUser, User} from "@/entity/user";
 
 class UserService{
-    findAll(){
-        return httpRequest.get<User>('/user');
+    async findAll(){
+        return httpRequest.get<any,User[]>('/user');
     }
     findOne(id:string){
-        return httpRequest.get<User>(`/user/${id}`);
+        return httpRequest.get<any,User>(`/user/${id}`);
     }
     create(user:any){
         return httpRequest.post<CreateUser,User>('/user',user);
@@ -17,4 +17,8 @@ class UserService{
     delete(id:string){
         return httpRequest.delete<number,User>(`/user/${id}`);
     }
+    deleteMany(ids:string[]){
+        return httpRequest.post<any,string[]>(`/user`,ids);
+    }
 }
+export const userService = new UserService();
